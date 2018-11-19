@@ -8,7 +8,7 @@
     "build": "babel src -s -D -d dist --presets env,stage-0",
     "prestart": "npm run -s build",
     "dev": "SET NODE_ENV=development && nodemon -w src --exec \"babel-node src/index --presets env,stage-0\"",
-    "start": "npm run -s build & nodemon start dist"
+    "start": "nodemon start dist"
   },
   "dependencies": {
     "express": "^4.16.4",
