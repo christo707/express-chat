@@ -25,6 +25,10 @@ console.log();
 console.log("Server Listening on port " + config.port );
 });
 
+app.get('/test', (req, res) => {
+  res.status(200).send("API is UP!!!!!!");
+})
+
 //Socket Setup
 let io = socket(server);
 
