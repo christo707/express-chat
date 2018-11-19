@@ -1,5 +1,5 @@
 //Make Connection
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('https://christo-express-chat.herokuapp.com/');
 
 // Get Data from html
 var message = document.getElementById('message'),
