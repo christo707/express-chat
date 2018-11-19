@@ -14,7 +14,7 @@ let app = express();
 app.use(express.static('public'));
 
 //Start Server
-let server = app.listen(config.port, () => {
+let server = app.listen(process.env.PORT || config.port, () => {
 console.log();
 console.log(' ,-----,--.  ,--.,------. ,--. ,---.,--------.,-----.');
 console.log("| .--./|  '--'  ||  .--. '|  |'   .-'--.  .--'  .-.  ' ");
