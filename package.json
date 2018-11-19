@@ -2,13 +2,13 @@
   "name": "express-chat",
   "version": "1.0.0",
   "description": "Sample Express app for chat application using socket.io",
-  "main": "index",
+  "main": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -s -D -d dist --presets env,stage-0",
     "prestart": "npm run -s build",
     "dev": "SET NODE_ENV=development && nodemon -w src --exec \"babel-node src/index --presets env,stage-0\"",
-    "start": "npm run -s build && SET NODE_ENV=production && nodemon start index"
+    "start": "npm run -s build && SET NODE_ENV=production && nodemon start dist"
   },
   "dependencies": {
     "express": "^4.16.4",
