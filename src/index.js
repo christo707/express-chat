@@ -33,6 +33,10 @@ app.get('/test', (req, res) => {
 let io = socket(server);
 
 io.on('connection', (socket) => {
+
+    let x = 0;
+    let y = 5;
+
     console.log('Made Socket Connection', socket.id);
 
     // Handle chat message event
@@ -45,4 +49,19 @@ io.on('connection', (socket) => {
     socket.on('typing', function(data){
         socket.broadcast.emit('typing', data);
     });
+
+    socket.on('join', function(data){
+      socket.emit('join', {x,y});
+    });
+    var interval = setInterval(myTimer, 1000 * 5);
+
+    function myTimer() {
+      x++;
+      y = Math.floor(Math.random() * (20 - 1) + 1)
+      socket.emit('step', {x,y});
+    }
+
+    socket.on('disconnect', function() {
+           clearInterval(interval);
+       });
 });
